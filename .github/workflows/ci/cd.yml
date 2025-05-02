@@ -1,4 +1,4 @@
-name: Real Estate CI/CD
+name: Dessert Shop CI/CD
 
 on:
   push:
@@ -7,10 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build-backend:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-   
 
     steps:
       - name: Checkout repository
@@ -24,5 +22,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Build (no-op)
+      - name: Run tests (optional)
+        run: npm test
+
+      - name: Build project (optional if not using TS/Build step)
         run: npm run build
+
+      # Example deployment: Deploy to Render using curl (API key + deploy hook)
+      - name: Deploy to Render (example)
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+
+  
