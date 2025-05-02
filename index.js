@@ -17,7 +17,7 @@ const mongo_url = process.env.MONGO_URL
 
 async function DBconnection(){
     try{
-        await mongoose.connect('mongodb+srv://KeerthikkaS:0o8u6t4e2q*K@cluster0.ka4dlmb.mongodb.net/chocolates',{serverSelectionTimeoutMS: 5000 })
+        await mongoose.connect('mongodb+srv://KeerthikkaS:keerthikka_01@cluster0.ka4dlmb.mongodb.net/choco');
         app.listen(port,function(){
             console.log(`DB Connected - Listening to port ${port}`)
         })
